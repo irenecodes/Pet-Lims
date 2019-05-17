@@ -1,27 +1,35 @@
 // Brent advised and Asaf approved to take different approach from running loops as described in pseudo code
 
 const petsByCity = {
-    // remember to add either option
     Toronto: {
         cat: 6,
-        dog: 3
+        dog: 3,
+        either: `3 dogs and 6 cats`,
+        bylaw: `City of Toronto Municipal Code, Chapter 349`
     },
     Vaughan: {
         cat: 3,
-        dog: 3
+        dog: 3,
+        either: `3 dogs and 3 cats`,
+        bylaw: `Animal Control By-law 53-2002`
     },
     RichmondHill: {
         cat:6,
-        dog:4
+        dog:4,
+        either: `4 dogs and 6 cats`,
+        bylaw: `Richmond Hill By-law Chapter 309, Cat Keeping and Chapter 314, Dog Licensing`
     },
     Markham: {
         cat: 2, 
-        // cat can be up to 4 but based on total # of pets =4
-        dog: 2
+        dog: 2,
+        either: `4 pets in any of the following ways: 2 dogs and 2 cats, 1 dog and 3 cats, or 4 cats`,
+        bylaw: `Animal Control By-law 2018-91`
     },
     Brampton: {
         cat: 6,
-        dog: 3
+        dog: 3,
+        either: `3 dogs and 6 cats`,
+        bylaw: `Animal by-laws 250-2005 and 261-93`
     }
 }
 
@@ -31,7 +39,7 @@ $(function () {
         e.preventDefault();
 
         // get choices user made
-
+//can clean this input area - says Adam
         // gets user array
         const animalInput = $(`input[name=pet]:checked`);
         // console.log(`You choice is `, animalInput);
@@ -44,7 +52,12 @@ $(function () {
         // console.log(`Your city is`, cityInput);
 
         const city = cityInput.val();
-        console.log(`the city is`, city);
+        // yields string of city name
+        
+
+        const law = petsByCity[city].bylaw;
+
+
 
         // look up answer based on choices
         const cityInfo = petsByCity[city];
@@ -52,17 +65,20 @@ $(function () {
 
         // gets answer of pet amount based on city
         const answer = cityInfo[animal];
-
         // bracket notation w/ variable to grab the value
 
 
         //display answer for user 
   
+        if (animal === `cat` || animal === `dog`) {
+            $(`.results`).html(`<h3>Based on your choice...you can get a maximum of ${answer} ${animal}s per household based on ${law}! </h3> <img src="assets/bonbon.jpg" alt="Cat sleeping in backpack.">`);
+            } else {
+                // $(`.results`).html(`<h3>Based on your choice...you can get a maximum of ${answer}!</h3>`);
 
-        $(`.results`).html(`<h3>Based on your choice...you can get a maximum of ${answer} ${animal}s! </h3>`);
-        // using as opposed to append?
-    
+                $(`.results`).html(`<h3>Based on your choice...you can get a maximum of ${answer} per household based on ${law}!</h3>`);
+        }
 
+        console.log(petsByCity[city].bylaw)
 
     });
     
