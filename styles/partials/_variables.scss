@@ -1,0 +1,27 @@
+// font-family: 'Didact Gothic', sans-serif;
+// font-family: 'Arimo', sans-serif;
+
+
+// variables
+$didact: 'Didact Gothic', sans-serif;
+$arimo: 'Arimo', sans-serif;
+$black: #161313;
+$white: #edfcff;
+$pink: #D4A0A7;
+$peach: #F2DFD7;
+$grey: #D8DBE2;
+
+
+// mixins
+@mixin heading ($font-size, $tt) {
+    font-size: $font-size;
+    color: $black;
+    font-family: $didact;
+    text-transform: $tt;
+    line-height: 1.2;
+    text-align: center;
+}
+
+
+
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Furry Friends</title>
+<!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Arimo|Didact+Gothic" rel="stylesheet">
+<!-- link to css style -->
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+<body>
+    <header>
+        <h1 class="wrapper">Furry Friends</h1>
+    </header>
+
+    <main id="main">
+        <a href='#main' class= 'skip-link' >Skip to main content.</a>
+        
+        <section class="about">
+            <div class="about-content wrapper">
+                <div class="about-text">
+                    <h2>about the site</h2>
+                    <p>Hi there! Are you looking to add a 4-legged furry friend to your family? Are you an aspiring cat-person, or believe your current doge deserves more doggo buds in the household? Before you add these friends to your family, check how many you can legally own first! If you reside in the Greater Toronto Area, this site was designed to present this data to you. Just answer a couple questions and you'll find out how many pets you are allowed to own.</p>
+                </div>
+                <div class="about-image">
+                    <img src="assets/nimbus.jpeg" alt="Two dogs playfully fighting over a bone.">
+                </div>
+            </div>
+        </section>
+
+        <section class="quiz">
+            <form action="">
+                <fieldset class="wrapper">
+                    <h2>Which pet do you want to add to the fam?</h2>
+                    <div>
+                        <label for="cat">Cat</label>
+                        <input type="radio" name="pet" id="cat" value="cat">
+                        <label for="dog">Dog</label>
+                        <input type="radio" name="pet" id="dog" value="dog">
+                        <label for="dog">Either!</label>
+                        <input type="radio" name="pet" id="either" value="either">
+                    </div>
+                </fieldset>
+
+                <fieldset class="wrapper">
+                    
+                    <h2>Which city do you reside in?</h2>
+                    <div>
+                        <label for="Toronto">Toronto</label>
+                        <input type="radio" name="city" id="Toronto" value="Toronto">
+                        <label for="Vaughan">Vaughan</label>
+                        <input type="radio" name="city" id="Vaughan" value="Vaughan">
+                        <label for="Richmond Hill">Richmond Hill</label>
+                        <input type="radio" name="city" id="Richmond Hill" value="RichmondHill">
+                        <label for="Markham">Markham</label>
+                        <input type="radio" name="city" id="Markham" value="Markham">
+                        <label for="Brampton">Brampton</label>
+                        <input type="radio" name="city" id="Brampton" value="Brampton">
+                    </div>
+                </fieldset>
+
+                <button type="submit">Submit</button>
+                
+            </form>
+
+        </section>
+
+        <section class="results">
+
+        </section>
+
+        <button type="refresh" class="refresh">Refresh</button>
+    </main>
+
+    <footer>
+        <p class="wrapper">Coded by Irene Truong. Images of pets displayed provided by peers of Irene Truong.</p>
+    </footer>
+
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

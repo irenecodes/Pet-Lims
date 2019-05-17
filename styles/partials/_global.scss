@@ -1,0 +1,115 @@
+.skip-link {
+    position: absolute;
+    left: -1000px;
+    top: 5px;
+    z-index: 999;
+    background: black;
+    color: white;
+}
+
+.skip-link:focus {
+    left:0;
+}
+
+// stripping styles
+html {
+    font-family: $arimo;
+    font-size:125%;
+    color:$black;
+    line-height:1.6;
+}
+
+img {
+    display:block;
+    width:100%;
+    max-width: 100%;
+}
+
+ul {
+    margin:0;
+    padding:0;
+}
+
+.wrapper {
+    max-width:1200px;
+    margin:0 auto;
+}
+
+// common styling
+header,
+.quiz {
+    background:$peach;
+}
+
+.about,
+.results {
+    background: $grey;
+}
+
+// heading styles
+header {
+    height:25vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        @include heading(4rem, uppercase);
+        border:2px $white solid;
+        padding:20px;
+    }
+}
+
+
+h2 {
+    @include heading(2rem, capitalize);
+}
+
+// about section
+.about-content {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    .about-text {
+        flex: 0 0 70%;
+        display:flex;
+        flex-direction: column;
+        h2 {
+            text-align: left;
+        }
+        p {
+            padding: 0 5% 0 0;
+        }
+    }
+    .about-image {
+        flex: 1 0 30%;
+    }
+}
+
+// quiz styles
+fieldset {
+    display:flex;
+    flex-direction: column;
+    border:none;
+    div {
+        // display: flex;
+        // justify-content: space-evenly;
+    }
+    label {
+        margin-right:5px;
+    }
+    input {
+        margin-right: 40px;
+    }
+}
+
+
+
+
+
+footer {
+    background: $pink;
+    p {
+        color: $peach;
+        text-align: center;
+    }
+}
