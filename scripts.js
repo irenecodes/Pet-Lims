@@ -33,6 +33,7 @@ const petsByCity = {
     }
 }
 
+
 $(function () {
     // creating an event
     $(`form`).on(`submit`, function (e) {
@@ -42,52 +43,43 @@ $(function () {
 //can clean this input area - says Adam
         // gets user array
         const animalInput = $(`input[name=pet]:checked`);
-        // console.log(`You choice is `, animalInput);
 
         // gets user choice
         const animal = animalInput.val();
-        // console.log(`chosen pet`, animal);
 
         const cityInput = $(`input[name=city]:checked`);
-        // console.log(`Your city is`, cityInput);
 
         const city = cityInput.val();
-        // yields string of city name
+// yields string of city name
         
-
         const law = petsByCity[city].bylaw;
-
 
 
         // look up answer based on choices
         const cityInfo = petsByCity[city];
-        // console.log(city);
 
         // gets answer of pet amount based on city
         const answer = cityInfo[animal];
-        // bracket notation w/ variable to grab the value
+// bracket notation w/ variable to grab the value
 
 
         //display answer for user 
-  
-        if (animal === `cat` || animal === `dog`) {
-            $(`.results`).html(`<h3>Based on your choice...you can get a maximum of ${answer} ${animal}s per household based on ${law}! </h3> <img src="assets/bonbon.jpg" alt="Cat sleeping in backpack.">`);
-            } else {
-                // $(`.results`).html(`<h3>Based on your choice...you can get a maximum of ${answer}!</h3>`);
+        if (animal === `cat`) {
+            $(`.results`).html(`<h3>Based on your choice...you can get a maximum of ${answer} ${animal}s per household based on ${law}! </h3> <img src="assets/joe.jpg" alt="Cat sleeping in backpack.">`);
+        } else if (animal === `dog`) {
+            $(`.results`).html(`<h3>Based on your choice...you can get a maximum of ${answer} ${animal}s per household based on ${law}! </h3> <img src="assets/buddy.jpg" alt="Large-sized dog sitting and smiling.">`);
+        } else {
+            $(`.results`).html(`<h3>Based on your choice...you can get a maximum of ${answer} per household based on ${law}!</h3> 
+            <img src="assets/joe.jpg" alt="Cat sleeping in backpack."> 
 
-                $(`.results`).html(`<h3>Based on your choice...you can get a maximum of ${answer} per household based on ${law}!</h3>`);
+            <h3> + </h3>
+
+            <img src="assets/buddy.jpg" alt="Large-sized dog sitting and smiling."> `);
         }
-
-        console.log(petsByCity[city].bylaw)
-
     });
-    
-
-    $(`.refresh`).click(function(){
+// reset button
+    $(`.reset`).click(function(){
         $(`.results`).empty();
     });
-
-    
-
 });
 

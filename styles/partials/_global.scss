@@ -13,7 +13,7 @@
 
 // stripping styles
 html {
-    font-family: $arimo;
+    font-family: $body-font;
     font-size:125%;
     color:$black;
     line-height:1.6;
@@ -35,64 +35,90 @@ ul {
     margin:0 auto;
 }
 
-// common styling
-header,
-.quiz {
-    background:$peach;
+h1,
+h2,
+h3 {
+    margin:0;
 }
 
+// common styling
 .about,
-.results {
+.output-area {
     background: $grey;
 }
 
 // heading styles
 header {
-    height:25vh;
+    min-height:55vh;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url(../assets/tiger.jpeg);
+    background-position: center;
+    background-size: cover;
     display:flex;
     justify-content: center;
     align-items: center;
     h1 {
-        @include heading(4rem, uppercase);
-        border:2px $white solid;
+        @include heading(4rem, uppercase, $white);
+        border:5px $peach outset;
         padding:20px;
+        // &:hover {
+        //     border:5px $peach inset;
+        // }
     }
 }
 
 
 h2 {
-    @include heading(2rem, capitalize);
+    @include heading(2rem, uppercase, $black);
+}
+
+h3 {
+    @include heading (1.5rem, initial, $black)
 }
 
 // about section
 .about-content {
+    padding:5px 0;
     display:flex;
     flex-direction: row;
     justify-content: space-between;
     .about-text {
-        flex: 0 0 70%;
+        flex: 1 0 60%;
+        border-left: 10px $pink solid;
+        padding: 0 5%;
+        // width:90%;
         display:flex;
         flex-direction: column;
         h2 {
             text-align: left;
         }
         p {
-            padding: 0 5% 0 0;
+            // padding: 0 5% 0 0;
         }
     }
     .about-image {
-        flex: 1 0 30%;
+        flex: 0 1 20%;
+        max-width:40%;
+        width:20%;
+        border: 10px $black solid;
+
+        
+        // top:-5px;
     }
 }
 
 // quiz styles
+.quiz {
+    background:$peach;
+    border-right: 10px $pink solid;
+}
+
 fieldset {
     display:flex;
     flex-direction: column;
     border:none;
     div {
-        // display: flex;
-        // justify-content: space-evenly;
+        display: flex;
+        justify-content: center;
     }
     label {
         margin-right:5px;
@@ -102,7 +128,37 @@ fieldset {
     }
 }
 
+// button styles
+button {
+    border:none;
+    display:block;
+    margin: 15px auto 0;
+    background-color:red;
+    // padding: 10px 0;
+    // display:inline-block;
+    // text-align:center;
+    &[type=reset] {
+        margin-bottom:15px;
+        // why is there a white background?
+    }
+}
 
+// output area styles
+.results {
+    border-left: 10px $pink solid;
+    display:flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    img {
+        // height:700px;
+        // width:700px;
+        max-width:70%;
+        padding:20px 0;
+        flex: 0 0 50%;
+        border-radius: 50%;
+    }
+}
 
 
 

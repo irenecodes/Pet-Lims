@@ -3,8 +3,8 @@
 
 
 // variables
-$didact: 'Didact Gothic', sans-serif;
-$arimo: 'Arimo', sans-serif;
+$header-font: 'Didact Gothic', sans-serif;
+$body-font: 'Arimo', sans-serif;
 $black: #161313;
 $white: #edfcff;
 $pink: #D4A0A7;
@@ -13,10 +13,10 @@ $grey: #D8DBE2;
 
 
 // mixins
-@mixin heading ($font-size, $tt) {
+@mixin heading ($font-size, $tt, $color) {
     font-size: $font-size;
-    color: $black;
-    font-family: $didact;
+    color: $color;
+    font-family: $header-font;
     text-transform: $tt;
     line-height: 1.2;
     text-align: center;
