@@ -35,6 +35,17 @@ const petsByCity = {
 
 
 $(function () {
+    //buttons activate once clicked
+    $('label').on('click', function () {
+        $(this).toggleClass('check');
+    });
+// allow user to only choose one option per fieldset
+    $('label').click(function () {
+        $('label').not(this).prop('checked', false);
+    });
+
+    
+
     // creating an event
     $(`form`).on(`submit`, function (e) {
         e.preventDefault();
@@ -64,13 +75,13 @@ $(function () {
 
 
         // required for user to fill all fields
-        if (
-            !$(`input[name=pet]:checked`).val() 
-        ||
-            !$(`input[name=city]:checked`).val()
-        ) {
-            alert(`nothing`);
-        }
+        // if (
+        //     !$(`input[name=pet]:checked`).val() 
+        // ||
+        //     !$(`input[name=city]:checked`).val()
+        // ) {
+        //     alert(`nothing`);
+        // }
 
 //works for only city input and needs pet
         // if (!$(`input[type=radio]`).prop(`:checked`)) {
@@ -79,11 +90,11 @@ $(function () {
 
         //display answer for user 
         if (animal === `cat`) {
-            $(`.results`).html(`<h3>Based on your choice...you can get a maximum of ${answer} ${animal}s per household based on ${law}! </h3> <img src="assets/joe.jpg" alt="Cat sleeping in backpack.">`);
+            $(`.results`).html(`<h3>Based on your answer...you can get a maximum of ${answer} ${animal}s per household based on ${law}! </h3> <img src="assets/joe.jpg" alt="Cat sleeping in backpack.">`);
         } else if (animal === `dog`) {
-            $(`.results`).html(`<h3>Based on your choice...you can get a maximum of ${answer} ${animal}s per household based on ${law}! </h3> <img src="assets/buddy.jpg" alt="Large-sized dog sitting and smiling.">`);
+            $(`.results`).html(`<h3>Based on your answer...you can get a maximum of ${answer} ${animal}s per household based on ${law}! </h3> <img src="assets/buddy.jpg" alt="Large-sized dog sitting and smiling.">`);
         } else if (animal === `either`) {
-            $(`.results`).html(`<h3>Based on your choice...you can get a maximum of ${answer} per household based on ${law}!</h3> 
+            $(`.results`).html(`<h3>Based on your answer...you can get a maximum of ${answer} per household based on ${law}!</h3> 
             <img src="assets/joe.jpg" alt="Cat sleeping in backpack."> 
 
             <h3> + </h3>

@@ -3,8 +3,8 @@
     left: -1000px;
     top: 5px;
     z-index: 999;
-    background: black;
-    color: white;
+    background: $main;
+    color: $accent-2;
 }
 
 .skip-link:focus {
@@ -15,7 +15,7 @@
 html {
     font-family: $body-font;
     font-size:125%;
-    color:$black;
+    color:$main;
     line-height:1.6;
 }
 
@@ -28,6 +28,14 @@ img {
 ul {
     margin:0;
     padding:0;
+}
+
+a {
+    text-decoration: none;
+    color: $accent;
+    &:hover {
+        border-bottom: 3px $accent double;
+    }
 }
 
 .wrapper {
@@ -44,7 +52,7 @@ h3 {
 // common styling
 .about,
 .output-area {
-    background: $grey;
+    background: $secondary;
 }
 
 // heading styles
@@ -57,22 +65,22 @@ header {
     justify-content: center;
     align-items: center;
     h1 {
-        @include heading(4rem, uppercase, $white);
-        border:5px $peach outset;
+        @include heading(4rem, uppercase, $accent-2);
+        border:5px $tertiary outset;
         padding:20px;
         // &:hover {
-        //     border:5px $peach inset;
+        //     border:5px $tertiary inset;
         // }
     }
 }
 
 
 h2 {
-    @include heading(2rem, uppercase, $black);
+    @include heading(2rem, uppercase, $main);
 }
 
 h3 {
-    @include heading (1.5rem, initial, $black)
+    @include heading (1.5rem, initial, $main)
 }
 
 // about section
@@ -83,7 +91,7 @@ h3 {
     justify-content: space-between;
     .about-text {
         flex: 1 0 60%;
-        border-left: 10px $pink solid;
+        border-left: 10px $accent solid;
         padding: 0 5%;
         // width:90%;
         display:flex;
@@ -97,94 +105,116 @@ h3 {
         flex: 0 1 20%;
         max-width:40%;
         width:20%;
-        border: 10px $black double;
+        border: 10px $main double;
     }
 }
 
 // quiz styles
 .quiz {
-    background:$peach;
+    background:$tertiary;
 }
 
 fieldset {
     display:flex;
     flex-direction: column;
     border:none;
-    border-right: 10px $pink solid;
+    border-right: 10px $accent solid;
     div {
         display: flex;
         justify-content: center;
     }
     label {
-        margin-right:5px;
+        padding: 10px 30px;
+        margin:5px;
+        background: $accent;
+        color: $main;
+        &:hover,
+        &:focus,
+        .check {
+            background: $main;
+            color:$accent-2;
+            transition: all ease 0.2s;
+        }
     }
-    input {
-        margin-right: 40px;
+
+    .check {
+        background: $main;
+        color: $accent-2;
+    }
+
+
+    input[type="radio"] {
+        // visibility: hidden; 
+        display:none;
     }
 }
 
 // button styles
 .button-container {
-    background-color: $grey;
+    background-color: $secondary;
     height:10vh;
     display:flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 5px $black solid;
+    border-bottom: 5px $main solid;
 }
 
 
 button {
     min-width:40px;
+    padding: 10px 30px;
     border:none;
     display:block;
-    background-color:$black;
-    color: $peach;
-}
-
-label {
-    padding: 10px 30px;
-    background: $pink;
-    color: $peach;
-    &:hover,
-    &:focus {
-        background: $black;
-        transition: all ease 0.2s;
+    background-color:$main;
+    color: $tertiary;
+    &:hover {
+        color: $accent-2;
+        background-color: $accent;
     }
 }
 
-input[type="radio"] {
-  visibility: hidden; }
 
 // output area styles
 .results {
-    border-left: 10px $pink solid;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0 5%;
     img {
         height:500px;
         width:500px;
-        
+        margin: 20px 0;
         object-fit: cover;
        
         border-radius: 50%;
-        border: $pink 10px double;
+        border: $accent 10px double;
     }
 }
 
 
 
+
 footer {
-    background: $pink;
+    background: $accent;
     p {
-        color: $peach;
+        color: $tertiary;
         text-align: center;
     }
 }
 
 // media queries
+@media (max-width:1066px) {
+    fieldset:nth-child(2) {
+        align-items: center;
+        div {
+            flex-wrap:wrap;
+            width:600px;
+        }
+    }
+}
+
+
 @media (max-width:882px) {
     .about-content {
         .about-text {
@@ -198,20 +228,8 @@ footer {
     fieldset {
         border-right:none;
     }
-
-    .results {
-        border-left:none;
-    }
 }
 
-@media (max-width:1080px) {
-    // .city-q {
-    //     div {
-    //         flex-wrap: wrap;
-    //         width:600px;
-    //     }
-    // }
-}
 
 
 @media (max-width:720px) {
@@ -241,6 +259,11 @@ footer {
         }
     }
 
+    fieldset:nth-child(2) {
+        div {
+            width:400px;
+        }
+    }
 
     .results {
         img {
@@ -251,9 +274,37 @@ footer {
 }
 
 @media (max-width:480px) {
+    header {
+        h1 {
+            font-size:2.2rem;
+        }
+    }
+
+    fieldset {
+        align-items:center;
+        div {
+            width:200px;
+            flex-direction: column;
+        }
+        label {
+            text-align: center;
+        }
+    }
+    fieldset:nth-child(2) {
+        div {
+            width:200px;
+        }
+    }
+
+    .results {
+        img {
+            height:300px;
+            width:300px;
+        }
+    }
 
 }
 
 @media (max-width:320px) {
-
+    // rubric shows we need to accomodate for this size- it was considered and all above styles in max-width: 480px translate well to 320px
 }
