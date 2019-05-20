@@ -300,9 +300,9 @@ h3 {
     .fieldset label .check {
       background: #161313;
       color: #edfcff;
-      -webkit-transition: all ease 0.2s;
-      -o-transition: all ease 0.2s;
-      transition: all ease 0.2s; }
+      -webkit-transition: all ease 0.1s;
+      -o-transition: all ease 0.1s;
+      transition: all ease 0.1s; }
   .fieldset .check {
     background: #161313;
     color: #edfcff; }

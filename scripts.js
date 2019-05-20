@@ -35,34 +35,22 @@ const petsByCity = {
 
 
 $(function () {
-    //buttons activate once clicked
+    //buttons activate once clicked and allow user to only choose one option per fieldset - inspired by https://teamtreehouse.com/community/removing-class-when-another-div-is-clicked
     $('label').on('click', function () {
+        $(this).siblings().removeClass(`check`);
         $(this).toggleClass('check');
-        // $(`label`).removeClass('check');
     });
-// allow user to only choose one option per fieldset
-    // $('label').click(function () {
-    //     $('label').not(this).prop('checked', false);
-    // });
-
-
-    
 
     // creating an event for when user choices are made
     $(`form`).on(`submit`, function (e) {
         e.preventDefault();
 
-        // get choices user made
-//can clean this input area - says Adam
-        // gets user array
-        const animalInput = $(`input[name=pet]:checked`);
-
         // gets user choice
-        const animal = animalInput.val();
+        const animal = $(`input[name=pet]:checked`).val();
+        const city = $(`input[name=city]:checked`).val();
 
-        const cityInput = $(`input[name=city]:checked`);
-
-        const city = cityInput.val();
+        console.log(animal);
+        console.log(city);
 // yields string of city name
         
         const law = petsByCity[city].bylaw;
@@ -77,40 +65,40 @@ $(function () {
 
 
         // required for user to fill all fields
-        // if (
-        //     !$(`input[name=pet]:checked`).val() 
-        // ||
-        //     !$(`input[name=city]:checked`).val()
-        // ) {
-        //     alert(`nothing`);
+        // if (!animal || !city) {
+        //     alert(`Please fill all fields.`);
         // }
+
+        if (!animal || !city) {
+            alert(`Please fill all fields.`);
+        }
 
 //works for only city input and needs pet
         // if (!$(`input[type=radio]`).prop(`:checked`)) {
-        //     alert(`nothing`);
+        //     alert(`Please fill all fields.`);
         // }
 
         //display answer for user 
         if (animal === `cat`) {
-            $(`.results`).html(`<h3>Based on your answer...you can get a maximum of ${answer} ${animal}s per household based on ${law}! </h3> <img src="assets/joe.jpg" alt="Cat sleeping in backpack.">`);
+            $(`.results`).html(`<h3>Based on your answer...you can get a maximum of ${answer} ${animal}s per household based on ${law}! </h3> <img src="assets/joe.jpg" alt="Cat with white undercoat sitting.">`);
         } else if (animal === `dog`) {
             $(`.results`).html(`<h3>Based on your answer...you can get a maximum of ${answer} ${animal}s per household based on ${law}! </h3> <img src="assets/buddy.jpg" alt="Large-sized dog sitting and smiling.">`);
         } else if (animal === `either`) {
             $(`.results`).html(`<h3>Based on your answer...you can get a maximum of ${answer} per household based on ${law}!</h3> 
-            <img src="assets/joe.jpg" alt="Cat sleeping in backpack."> 
+            <img src="assets/buddy.jpg" alt="Large-sized dog sitting and smiling.">
 
             <h3> + </h3>
 
-            <img src="assets/buddy.jpg" alt="Large-sized dog sitting and smiling."> `);
+            <img src="assets/joe.jpg" alt="Cat with white undercoat sitting.">`);
         } else {
             $(`.results`).html(`<h3>Please answer both questions for your result.</h3>`)
         }
-
-
     });
-// reset button
+// reset button empties .results and removes choices
     $(`.reset`).click(function(){
         $(`.results`).empty();
+        $(`form`).trigger("reset");
+        $(`label`).removeClass('check');
     });
 });
 
