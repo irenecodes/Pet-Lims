@@ -114,7 +114,7 @@ h3 {
     background:$tertiary;
 }
 
-fieldset {
+.fieldset {
     display:flex;
     flex-direction: column;
     border:none;
@@ -205,7 +205,7 @@ footer {
 
 // media queries
 @media (max-width:1066px) {
-    fieldset:nth-child(2) {
+    .fieldset:nth-child(2) {
         align-items: center;
         div {
             flex-wrap:wrap;
@@ -225,7 +225,7 @@ footer {
         }
     }
 
-    fieldset {
+    .fieldset{
         border-right:none;
     }
 }
@@ -259,7 +259,7 @@ footer {
         }
     }
 
-    fieldset:nth-child(2) {
+    .fieldset:nth-child(2) {
         div {
             width:400px;
         }
@@ -280,7 +280,7 @@ footer {
         }
     }
 
-    fieldset {
+    .fieldset{
         align-items:center;
         div {
             width:200px;
@@ -290,7 +290,8 @@ footer {
             text-align: center;
         }
     }
-    fieldset:nth-child(2) {
+
+    .fieldset:nth-child(2) {
         div {
             width:200px;
         }

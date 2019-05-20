@@ -33,7 +33,8 @@
 
         <section class="quiz"> <!-- quiz section starts -->
             <form action="">
-                <fieldset class="wrapper">
+                <div role = "group" class="fieldset wrapper">
+                <!-- using div .fieldset as opposed to fieldset as this will lead to buggy code in Chrome when flexbox + fieldset -->
                     <h2>Which pet do you want to add to the fam?</h2>
                     <div>
                         <label for="cat">Cat</label>
@@ -43,10 +44,9 @@
                         <label for="either">Either!</label>
                         <input type="radio" name="pet" id="either" value="either">
                     </div>
-                </fieldset>
+                </div>
 
-                <fieldset class="wrapper">
-                    
+                <div role="group" class="fieldset wrapper">
                     <h2>What city do you reside in?</h2>
                     <div>
                         <label for="Toronto">Toronto</label>
@@ -60,7 +60,7 @@
                         <label for="Brampton">Brampton</label>
                         <input type="radio" name="city" id="Brampton" value="Brampton">
                     </div>
-                </fieldset>
+                </div>
 
                 <div class="button-container">
                     <button type="submit">Submit</button>
