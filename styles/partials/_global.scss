@@ -88,34 +88,29 @@ h3 {
         // width:90%;
         display:flex;
         flex-direction: column;
+        justify-content: center;
         h2 {
             text-align: left;
-        }
-        p {
-            // padding: 0 5% 0 0;
         }
     }
     .about-image {
         flex: 0 1 20%;
         max-width:40%;
         width:20%;
-        border: 10px $black solid;
-
-        
-        // top:-5px;
+        border: 10px $black double;
     }
 }
 
 // quiz styles
 .quiz {
     background:$peach;
-    border-right: 10px $pink solid;
 }
 
 fieldset {
     display:flex;
     flex-direction: column;
     border:none;
+    border-right: 10px $pink solid;
     div {
         display: flex;
         justify-content: center;
@@ -129,34 +124,53 @@ fieldset {
 }
 
 // button styles
+.button-container {
+    background-color: $grey;
+    height:10vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 5px $black solid;
+}
+
+
 button {
+    min-width:40px;
     border:none;
     display:block;
-    margin: 15px auto 0;
-    background-color:red;
-    // padding: 10px 0;
-    // display:inline-block;
-    // text-align:center;
-    &[type=reset] {
-        margin-bottom:15px;
-        // why is there a white background?
+    background-color:$black;
+    color: $peach;
+}
+
+label {
+    padding: 10px 30px;
+    background: $pink;
+    color: $peach;
+    &:hover,
+    &:focus {
+        background: $black;
+        transition: all ease 0.2s;
     }
 }
+
+input[type="radio"] {
+  visibility: hidden; }
 
 // output area styles
 .results {
     border-left: 10px $pink solid;
     display:flex;
     flex-direction: column;
-    // justify-content: center;
+    justify-content: center;
     align-items: center;
     img {
-        // height:700px;
-        // width:700px;
-        max-width:70%;
-        padding:20px 0;
-        flex: 0 0 50%;
+        height:500px;
+        width:500px;
+        
+        object-fit: cover;
+       
         border-radius: 50%;
+        border: $pink 10px double;
     }
 }
 
@@ -168,4 +182,78 @@ footer {
         color: $peach;
         text-align: center;
     }
+}
+
+// media queries
+@media (max-width:882px) {
+    .about-content {
+        .about-text {
+            border-left: none;
+        }
+        .about-image{
+            flex: 1 0 20%;
+        }
+    }
+
+    fieldset {
+        border-right:none;
+    }
+
+    .results {
+        border-left:none;
+    }
+}
+
+@media (max-width:1080px) {
+    // .city-q {
+    //     div {
+    //         flex-wrap: wrap;
+    //         width:600px;
+    //     }
+    // }
+}
+
+
+@media (max-width:720px) {
+    header {
+        h1 {
+            font-size: 3rem;
+        }
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    .about-content {
+        .about-text{
+            text-align: center;
+            h2 {
+                text-align: center;
+            }
+        }
+        .about-image {
+            display:none;
+        }
+    }
+
+
+    .results {
+        img {
+            height:400px;
+            width:400px;
+        }
+    }
+}
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:320px) {
+
 }
