@@ -51,7 +51,7 @@ $(function () {
 
         //error handling / display answer for user / grabbing value with bracket notation
         if (!animal || !city) {
-            $(`.results`).html(`<h3>Please answer both questions for your result.</h3>`)
+            $(`.results`).html(`<h3>The cat's still in the bag...Please answer both questions for your result.</h3> <img src="assets/bonbon.png" alt="Cat sleeping in bag.">`)
         } else {
             const law = petsByCity[city].bylaw;
             const cityInfo = petsByCity[city];
