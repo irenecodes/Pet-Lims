@@ -298,13 +298,15 @@ h3 {
     margin: 5px;
     background: #D4A0A7;
     color: #161313; }
-    .fieldset label:hover, .fieldset label:focus,
-    .fieldset label .check {
+    .fieldset label:hover, .fieldset label:focus {
       background: #161313;
       color: #edfcff;
       -webkit-transition: all ease 0.3s;
       -o-transition: all ease 0.3s;
       transition: all ease 0.3s; }
+  .fieldset .check {
+    background: #161313;
+    color: #edfcff; }
   .fieldset input[type="radio"] {
     display: none; }
 

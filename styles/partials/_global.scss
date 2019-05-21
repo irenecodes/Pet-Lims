@@ -128,12 +128,16 @@ h3 {
         background: $accent;
         color: $main;
         &:hover,
-        &:focus,
-        .check {
+        &:focus {
             background: $main;
             color:$accent-2;
             transition: all ease 0.3s;
         }
+    }
+
+    .check {
+        background: $main;
+        color:$accent-2;
     }
 
     input[type="radio"] {
