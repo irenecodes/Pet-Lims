@@ -35,7 +35,7 @@ const petsByCity = {
 
 
 $(function () {
-    //buttons activate once clicked and allow user to only choose one option per fieldset - inspired by https://teamtreehouse.com/community/removing-class-when-another-div-is-clicked
+    //buttons activate once clicked and allow user to only choose one option per fieldset - inspired by/credit to https://teamtreehouse.com/community/removing-class-when-another-div-is-clicked
     $('label').on('click', function () {
         $(this).siblings().removeClass(`check`);
         $(this).toggleClass('check');
@@ -48,6 +48,11 @@ $(function () {
         // gets user choice
         const animal = $(`input[name=pet]:checked`).val();
         const city = $(`input[name=city]:checked`).val();
+
+        // smooth scroll credit https://css-tricks.com/snippets/jquery/smooth-scrolling/
+        $('html, body').animate({
+            scrollTop: $("#results").offset().top
+        }, 1000)
 
         //error handling / display answer for user / grabbing value with bracket notation
         if (!animal || !city) {

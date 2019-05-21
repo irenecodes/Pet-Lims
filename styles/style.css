@@ -174,7 +174,7 @@ ul {
 a {
   text-decoration: none;
   color: #D4A0A7; }
-  a:hover {
+  a:hover, a:focus {
     border-bottom: 3px #D4A0A7 double; }
 
 .wrapper {
@@ -231,7 +231,8 @@ h3 {
   font-family: "Didact Gothic", sans-serif;
   text-transform: initial;
   line-height: 1.2;
-  text-align: center; }
+  text-align: center;
+  margin-top: 20px; }
 
 .about-content {
   padding: 5px 0;
@@ -261,8 +262,8 @@ h3 {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center; }
-    .about-content .about-text h2 {
-      text-align: left; }
+  .about-content h2 {
+    text-align: left; }
   .about-content .about-image {
     -webkit-box-flex: 0;
     -ms-flex: 0 1 20%;
@@ -283,7 +284,8 @@ h3 {
   -ms-flex-direction: column;
   flex-direction: column;
   border: none;
-  border-right: 10px #D4A0A7 solid; }
+  border-right: 10px #D4A0A7 solid;
+  padding: 20px 5%; }
   .fieldset div {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -300,12 +302,9 @@ h3 {
     .fieldset label .check {
       background: #161313;
       color: #edfcff;
-      -webkit-transition: all ease 0.1s;
-      -o-transition: all ease 0.1s;
-      transition: all ease 0.1s; }
-  .fieldset .check {
-    background: #161313;
-    color: #edfcff; }
+      -webkit-transition: all ease 0.3s;
+      -o-transition: all ease 0.3s;
+      transition: all ease 0.3s; }
   .fieldset input[type="radio"] {
     display: none; }
 
@@ -330,7 +329,7 @@ button {
   display: block;
   background-color: #161313;
   color: #F2DFD7; }
-  button:hover {
+  button:hover, button:focus {
     color: #edfcff;
     background-color: #D4A0A7; }
 
@@ -391,12 +390,20 @@ footer {
     font-size: 1.5rem; }
   h3 {
     font-size: 1.2rem; }
-  .about-content .about-text {
-    text-align: center; }
-    .about-content .about-text h2 {
+  header h1,
+  h2 {
+    margin-bottom: 10px; }
+  .about-content {
+    padding: none; }
+    .about-content .about-text {
+      text-align: center;
+      padding: 20px 5%; }
+    .about-content h2 {
       text-align: center; }
-  .about-content .about-image {
-    display: none; }
+    .about-content p {
+      margin: 0; }
+    .about-content .about-image {
+      display: none; }
   .fieldset:nth-child(2) div {
     width: 400px; }
   .results img {
@@ -404,6 +411,8 @@ footer {
     width: 400px; } }
 
 @media (max-width: 480px) {
+  html {
+    font-size: 100%; }
   header h1 {
     font-size: 2.2rem; }
   .fieldset {
