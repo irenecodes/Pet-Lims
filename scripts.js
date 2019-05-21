@@ -79,7 +79,7 @@ $(function () {
     // reset button empties .results and removes choices
     $(`.reset`).click(function () {
         $(`.results`).empty();
-        $(`form`).trigger("reset");
+        $(`form`).trigger(`reset`);
         $(`label`).removeClass('check');
     });
 });
