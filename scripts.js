@@ -20,7 +20,7 @@ const petsByCity = {
         bylaw: `<a href="https://www.richmondhill.ca/en/our-services/Animal-Services.aspx" target="_blank">Richmond Hill By-law Chapter 309 and Chapter 314</a>`
     },
     Markham: {
-        cat: 2,
+        cat: 4,
         dog: 2,
         either: `4 pets in any of the following ways: 2 dogs and 2 cats, 1 dog and 3 cats, or 4 cats`,
         bylaw: `<a href="https://www.markham.ca/wps/portal/home/about/city-hall/bylaws/bylaw-guide-for-homeowners/animal-control" target="_blank">Animal Control By-law 2018-91</a>`
