@@ -12,6 +12,12 @@
 }
 
 // stripping styles
+* {
+    &:focus {
+        border: 1px solid blue;
+    }
+}
+
 html {
     font-family: $body-font;
     font-size:125%;
@@ -79,7 +85,7 @@ h2 {
 
 h3 {
     @include heading (1.5rem, initial, $main);
-    margin-top:20px;
+    margin:20px 0;
 }
 
 // about section
@@ -112,7 +118,7 @@ h3 {
     background:$tertiary;
 }
 
-.fieldset {
+fieldset{
     display:flex;
     flex-direction: column;
     border:none;
@@ -141,7 +147,7 @@ h3 {
     }
 
     input[type="radio"] {
-        display:none;
+        opacity:0; 
     }
 }
 
