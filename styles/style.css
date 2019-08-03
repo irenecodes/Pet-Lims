@@ -378,6 +378,8 @@ fieldset .check {
 
 fieldset input[type="radio"] {
   opacity: 0;
+  filter: alpha(opacity=0);
+  position: absolute;
 }
 
 .button-container {
@@ -446,19 +448,18 @@ footer p {
 }
 
 @media (max-width: 1066px) {
-  .fieldset:nth-child(2) {
+  fieldset:nth-child(2) {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
   }
-  .fieldset:nth-child(2) div {
+  fieldset:nth-child(2) div {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    width: 600px;
   }
 }
 
-@media (max-width: 882px) {
+@media (max-width: 960px) {
   .about-content .about-text {
     border-left: none;
   }
@@ -467,12 +468,12 @@ footer p {
         -ms-flex: 1 0 20%;
             flex: 1 0 20%;
   }
-  .fieldset {
+  fieldset {
     border-right: none;
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 794px) {
   header h1 {
     font-size: 3rem;
   }
@@ -502,9 +503,6 @@ footer p {
   .about-content .about-image {
     display: none;
   }
-  .fieldset:nth-child(2) div {
-    width: 400px;
-  }
   .results img {
     height: 400px;
     width: 400px;
@@ -518,23 +516,25 @@ footer p {
   header h1 {
     font-size: 2.2rem;
   }
-  .fieldset {
+  fieldset {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
   }
-  .fieldset div {
-    width: 200px;
+  fieldset div {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .fieldset label {
-    text-align: center;
+  fieldset .quiz-choices {
+    width: 70%;
   }
-  .fieldset:nth-child(2) div {
-    width: 200px;
+  fieldset label {
+    text-align: center;
   }
   .results img {
     height: 300px;
