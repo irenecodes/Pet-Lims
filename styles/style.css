@@ -531,7 +531,7 @@ footer p {
             flex-direction: column;
   }
   fieldset .quiz-choices {
-    width: 70%;
+    width: 100%;
   }
   fieldset label {
     text-align: center;
