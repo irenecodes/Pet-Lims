@@ -148,6 +148,8 @@ fieldset{
 
     input[type="radio"] {
         opacity:0; 
+        filter:alpha(opacity=0);
+        position:absolute
     }
 }
 
@@ -205,17 +207,16 @@ footer {
 
 // media queries
 @media (max-width:1066px) {
-    .fieldset:nth-child(2) {
+    fieldset:nth-child(2) {
         align-items: center;
         div {
             flex-wrap:wrap;
-            width:600px;
         }
     }
 }
 
 
-@media (max-width:882px) {
+@media (max-width:960px) {
     .about-content {
         .about-text {
             border-left: none;
@@ -225,14 +226,14 @@ footer {
         }
     }
 
-    .fieldset{
+    fieldset{
         border-right:none;
     }
 }
 
 
 
-@media (max-width:720px) {
+@media (max-width:794px) {
     header {
         h1 {
             font-size: 3rem;
@@ -269,12 +270,6 @@ footer {
         }
     }
 
-    .fieldset:nth-child(2) {
-        div {
-            width:400px;
-        }
-    }
-
     .results {
         img {
             height:400px;
@@ -294,20 +289,24 @@ footer {
         }
     }
 
-    .fieldset{
+    fieldset{
         align-items:center;
         div {
-            width:200px;
+            align-self:center;
+
             flex-direction: column;
+        }
+        .quiz-choices {
+            width:70%;
         }
         label {
             text-align: center;
         }
     }
 
-    .fieldset:nth-child(2) {
+    fieldset:nth-child(2) {
         div {
-            width:200px;
+            // width:200px;
         }
     }
 
