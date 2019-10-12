@@ -193,7 +193,7 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 *:focus {
-  border: 1px solid blue;
+  outline: auto 5px -webkit-focus-ring-color;
 }
 
 html {
@@ -230,7 +230,8 @@ a:hover, a:focus {
 
 h1,
 h2,
-h3 {
+h3,
+legend {
   margin: 0;
 }
 
@@ -241,8 +242,8 @@ h3 {
 
 header {
   min-height: 55vh;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.9))), url(../assets/tiger.jpeg);
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url(../assets/tiger.jpeg);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.9))), #000 url(../assets/tiger.jpeg);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), #000 url(../assets/tiger.jpeg);
   background-position: center;
   background-size: cover;
   display: -webkit-box;
@@ -267,7 +268,8 @@ header h1 {
   padding: 20px;
 }
 
-h2 {
+h2,
+legend {
   font-size: 2rem;
   color: #161313;
   font-family: "Didact Gothic", sans-serif;
@@ -335,51 +337,46 @@ h3 {
   background: #F2DFD7;
 }
 
+.fieldset-container {
+  padding: 5px 0;
+}
+
 fieldset {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   border: none;
-  border-right: 10px #D4A0A7 solid;
   padding: 20px 5%;
 }
 
-fieldset div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+fieldset legend {
+  padding-top: 20px;
+  margin-bottom: 20px;
 }
 
-fieldset label {
-  padding: 10px 30px;
-  margin: 5px;
-  background: #D4A0A7;
-  color: #161313;
+select {
+  -webkit-appearance: none;
+  margin: 0 auto;
+  border: none;
+  background-image: linear-gradient(45deg, transparent 50%, #D4A0A7 50%), linear-gradient(135deg, #D4A0A7 50%, transparent 50%);
+  background-position: calc(100% - 25px) calc(1em + -3px), calc(100% - 15px) calc(1em + -3px);
+  background-size: 10px 10px, 10px 10px, 1px 1.5em;
+  background-repeat: no-repeat;
 }
 
-fieldset label:hover, fieldset label:focus {
-  background: #161313;
-  color: #edfcff;
-  -webkit-transition: all ease 0.3s;
-  transition: all ease 0.3s;
-}
-
-fieldset .check {
-  background: #161313;
-  color: #edfcff;
-}
-
-fieldset input[type="radio"] {
-  opacity: 0;
-  filter: alpha(opacity=0);
+#down-tri {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid black;
   position: absolute;
+}
+
+select, option {
+  font-size: 1.1rem;
+  padding: 10px;
+  min-width: 170px;
 }
 
 .button-container {
@@ -407,7 +404,7 @@ button {
 }
 
 button:hover, button:focus {
-  color: #edfcff;
+  color: #161313;
   background-color: #D4A0A7;
 }
 
@@ -439,11 +436,11 @@ button:hover, button:focus {
 }
 
 footer {
-  background: #D4A0A7;
+  background: #161313;
 }
 
 footer p {
-  color: #F2DFD7;
+  color: #D4A0A7;
   text-align: center;
 }
 
@@ -478,13 +475,13 @@ footer p {
     font-size: 3rem;
   }
   h2 {
+    padding-bottom: 20px;
+  }
+  legend {
     font-size: 1.5rem;
   }
-  h3 {
-    font-size: 1.2rem;
-  }
   header h1,
-  h2 {
+  legend {
     margin-bottom: 10px;
   }
   .about-content {
@@ -529,9 +526,6 @@ footer p {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-  }
-  fieldset label {
-    text-align: center;
   }
   .results img {
     height: 300px;

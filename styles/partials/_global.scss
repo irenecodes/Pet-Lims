@@ -14,7 +14,7 @@
 // stripping styles
 * {
     &:focus {
-        border: 1px solid blue;
+        outline: auto 5px -webkit-focus-ring-color
     }
 }
 
@@ -52,7 +52,8 @@ a {
 
 h1,
 h2,
-h3 {
+h3,
+legend {
     margin:0;
 }
 
@@ -65,7 +66,7 @@ h3 {
 // heading styles
 header {
     min-height:55vh;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), url(../assets/tiger.jpeg);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)), #000 url(../assets/tiger.jpeg);
     background-position: center;
     background-size: cover;
     display:flex;
@@ -79,7 +80,8 @@ header {
 }
 
 
-h2 {
+h2,
+legend {
     @include heading(2rem, uppercase, $main);
 }
 
@@ -118,39 +120,50 @@ h3 {
     background:$tertiary;
 }
 
+.fieldset-container {
+    padding: 5px 0;
+}
+
 fieldset{
     display:flex;
-    flex-direction: column;
     border:none;
-    border-right: 10px $accent solid;
     padding: 20px 5%;
-    div {
-        display: flex;
-        justify-content: center;
+    legend {
+        padding-top:20px;
+        margin-bottom: 20px;
     }
-    label {
-        padding: 10px 30px;
-        margin:5px;
-        background: $accent;
-        color: $main;
-        &:hover,
-        &:focus {
-            background: $main;
-            color:$accent-2;
-            transition: all ease 0.3s;
-        }
-    }
+}
 
-    .check {
-        background: $main;
-        color:$accent-2;
-    }
+select {
+    -webkit-appearance: none;
+    margin: 0 auto;
+    border: none;
+    background-image:
+        linear-gradient(45deg, transparent 50%, $accent 50%),
+        linear-gradient(135deg, $accent 50%, transparent 50%);
+    background-position:
+        calc(100% - 25px) calc(1em + -3px),
+        calc(100% - 15px) calc(1em + -3px);
+    background-size:
+        10px 10px,
+        10px 10px,
+        1px 1.5em;
+    background-repeat: no-repeat;
+}
 
-    input[type="radio"] {
-        opacity:0; 
-        filter:alpha(opacity=0);
-        position:absolute
-    }
+#down-tri {
+    width:0;
+    height:0;
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+    border-top: 20px solid black;
+    position: absolute;
+}
+
+select, option {
+    font-size: 1.1rem;
+    padding: 10px;
+    min-width: 170px;
 }
 
 // button styles
@@ -163,7 +176,6 @@ fieldset{
     border-bottom: 5px $main solid;
 }
 
-
 button {
     min-width:40px;
     padding: 10px 30px;
@@ -173,11 +185,10 @@ button {
     color: $tertiary;
     &:hover,
     &:focus {
-        color: $accent-2;
+        color: $main;
         background-color: $accent;
     }
 }
-
 
 // output area styles
 .results {
@@ -198,9 +209,9 @@ button {
 
 // footer styles
 footer {
-    background: $accent;
+    background: $main;
     p {
-        color: $tertiary;
+        color: $accent;
         text-align: center;
     }
 }
@@ -215,7 +226,6 @@ footer {
     }
 }
 
-
 @media (max-width:960px) {
     .about-content {
         .about-text {
@@ -225,13 +235,10 @@ footer {
             flex: 1 0 20%;
         }
     }
-
     fieldset{
         border-right:none;
     }
 }
-
-
 
 @media (max-width:794px) {
     header {
@@ -239,17 +246,14 @@ footer {
             font-size: 3rem;
         }
     }
-
     h2 {
+        padding-bottom: 20px;
+    }
+    legend {
         font-size: 1.5rem;
     }
-
-    h3 {
-        font-size: 1.2rem;
-    }
-
     header h1,
-    h2 {
+    legend {
         margin-bottom: 10px;
     }
     
@@ -269,7 +273,6 @@ footer {
             display:none;
         }
     }
-
     .results {
         img {
             height:400px;
@@ -282,36 +285,22 @@ footer {
     html {
         font-size: 100%;
     }
-    
     header {
         h1 {
             font-size:2.2rem;
         }
     }
-
     fieldset{
         align-items:center;
         div {
             align-self:center;
-
             flex-direction: column;
         }
-        label {
-            text-align: center;
-        }
     }
-
- 
-
     .results {
         img {
             height:300px;
             width:300px;
         }
     }
-
-}
-
-@media (max-width:320px) {
-    // rubric shows we need to accomodate for this size- it was considered and all above styles in max-width: 480px translate well to 320px
 }

@@ -1,5 +1,3 @@
-// Brent advised and Asaf approved to take different approach from running loops as described in pseudo code
-
 const petsByCity = {
     Toronto: {
         cat: 6,
@@ -30,49 +28,51 @@ const petsByCity = {
         dog: 3,
         either: '3 dogs and 6 cats',
         bylaw: '<a href="http://www.brampton.ca/en/City-Hall/Bylaws/Pages/Animal-By-laws.aspx" target="_blank">Animal by-laws 250-2005 and 261-93</a>'
+    },
+    Newmarket: {
+        cat: 4,
+        dog: 3,
+        either: '3 dogs and 4 cats',
+        bylaw: '<a href="https://www.newmarket.ca/TownGovernment/Documents/2016-53%20Animal%20Control.pdf" target="_blank" aria-label="Open bylaw PDF document.">By-law Number 2016-53 Sections 4.13 and 3.16</a>'
+    },
+    Ajax: {
+        cat: 3,
+        dog: 3,
+        either: '3 dogs and 3 cats',
+        bylaw: '<a href="https://www.ajax.ca/Modules/bylaws/Bylaw/Details/69264dc4-8714-4b08-a0c2-7df8cc809bbc" target="_blank" aria-label="Go to website where PDF of bylaw can be downloaded for review.">By-law Number 48-2017 Sections 7.7 and 7.8</a>'
+    },
+    Aurora: {
+        cat: '2 or 3 (review Section 22)',
+        dog: '2 or 3 (review Section 10)',
+        either: '2 or 3 cats, or dogs',
+        bylaw: '<a href="https://www.aurora.ca/TownHall/Documents/Bylaws/6027-17%20Animal%20Control%20By-law.pdf" target="_blank" aria-label="Go to bylaw\'s PDF.">By-law Number 6027-17 Sections 10 and 22</a>'
     }
 }
 
 
 $(function () {
-    //buttons activate once clicked and allow user to only choose one option per fieldset - inspired by/credit to https://teamtreehouse.com/community/removing-class-when-another-div-is-clicked
-    $('label').on('click', function () {
-        $(this).siblings().removeClass(`check`);
-        $(this).addClass('check');
-    });
-
     // creating an event for when user choices are made
     $(`form`).on(`submit`, function (e) {
         e.preventDefault();
-
         // gets user choice
-        const animal = $(`input[name=pet]:checked`).val();
-        const city = $(`input[name=city]:checked`).val();
-
-        // smooth scroll credit https://css-tricks.com/snippets/jquery/smooth-scrolling/
+        const animal = $(`#pet option:selected`).val();
+        const city = $(`#city option:selected`).val();
         $('html, body').animate({
             scrollTop: $("#results").offset().top
         }, 1000)
+        const law = petsByCity[city].bylaw;
+        const cityInfo = petsByCity[city];
+        const answer = cityInfo[animal];
 
-        //error handling / display answer for user / grabbing value with bracket notation
-        if (!animal || !city) {
-            $(`.results`).html(`<h3>The cat's still in the bag...Please answer both questions for your result.</h3> <img src="assets/bonbon.png" alt="Cat sleeping in bag.">`)
+        if (animal === `cat`) {
+            $(`.results`).html(`<h3>Based on your answer...you can have a maximum of ${answer} ${animal}s per household based on ${law}! </h3> <img src="assets/joe.jpg" alt="Cat with white undercoat sitting."><p>Disclaimer: Please verify actual number of pets you can own with your local regional authority.</p>`);
+        } else if (animal === `dog`) {
+            $(`.results`).html(`<h3>Based on your answer...you can have a maximum of ${answer} ${animal}s per household based on ${law}! </h3> <img src="assets/buddy.jpg" alt="Large-sized dog sitting and smiling."><p>Disclaimer: Please verify actual number of pets you can own with your local regional authority.</p>`);
         } else {
-            const law = petsByCity[city].bylaw;
-            const cityInfo = petsByCity[city];
-            const answer = cityInfo[animal];
-
-
-            if (animal === `cat`) {
-                $(`.results`).html(`<h3>Based on your answer...you can have a maximum of ${answer} ${animal}s per household based on ${law}! </h3> <img src="assets/joe.jpg" alt="Cat with white undercoat sitting.">`);
-            } else if (animal === `dog`) {
-                $(`.results`).html(`<h3>Based on your answer...you can have a maximum of ${answer} ${animal}s per household based on ${law}! </h3> <img src="assets/buddy.jpg" alt="Large-sized dog sitting and smiling.">`);
-            } else {
-                $(`.results`).html(`<h3>Based on your answer...you can have a maximum of ${answer} per household based on ${law}!</h3> 
-                <img src="assets/buddy.jpg" alt="Large-sized dog sitting and smiling.">
-                <h3> + </h3>
-                <img src="assets/joe.jpg" alt="Cat with white undercoat sitting.">`);
-            }
+            $(`.results`).html(`<h3>Based on your answer...you can have a maximum of ${answer} per household based on ${law}!</h3> 
+            <img src="assets/buddy.jpg" alt="Large-sized dog sitting and smiling.">
+            <h3> + </h3>
+            <img src="assets/joe.jpg" alt="Cat with white undercoat sitting."><p>Disclaimer: Please verify actual number of pets you can own with your local regional authority.</p>`);
         }
     });
 
@@ -80,7 +80,6 @@ $(function () {
     $(`.reset`).click(function () {
         $(`.results`).empty();
         $(`form`).trigger(`reset`);
-        $(`label`).removeClass('check');
     });
 });
 
