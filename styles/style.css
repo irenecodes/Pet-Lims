@@ -356,7 +356,7 @@ fieldset {
 
 fieldset legend {
   padding-top: 20px;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
 }
 
 select {
