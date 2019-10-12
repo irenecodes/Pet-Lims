@@ -235,6 +235,11 @@ legend {
   margin: 0;
 }
 
+label {
+  visibility: hidden;
+  position: absolute;
+}
+
 .about,
 .output-area {
   background: #D8DBE2;

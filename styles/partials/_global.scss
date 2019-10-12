@@ -57,6 +57,11 @@ legend {
     margin:0;
 }
 
+label {
+    visibility: hidden;
+    position:absolute;
+}
+
 // common styling
 .about,
 .output-area {
