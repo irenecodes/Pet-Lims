@@ -381,12 +381,11 @@ select {
 select, option {
   font-size: 1.1rem;
   padding: 10px;
-  min-width: 170px;
+  min-width: 180px;
 }
 
 .button-container {
   background-color: #D8DBE2;
-  height: 10vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -401,6 +400,7 @@ select, option {
 
 button {
   min-width: 40px;
+  margin: 20px 0;
   padding: 10px 30px;
   border: none;
   display: block;
@@ -447,6 +447,11 @@ footer {
 footer p {
   color: #D4A0A7;
   text-align: center;
+  padding: 5px 0;
+}
+
+footer a {
+  text-decoration: underline;
 }
 
 @media (max-width: 1066px) {

@@ -169,13 +169,12 @@ select {
 select, option {
     font-size: 1.1rem;
     padding: 10px;
-    min-width: 170px;
+    min-width: 180px;
 }
 
 // button styles
 .button-container {
     background-color: $secondary;
-    height:10vh;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -184,6 +183,7 @@ select, option {
 
 button {
     min-width:40px;
+    margin: 20px 0;
     padding: 10px 30px;
     border:none;
     display:block;
@@ -219,6 +219,10 @@ footer {
     p {
         color: $accent;
         text-align: center;
+        padding: 5px 0;
+    }
+    a {
+        text-decoration: underline;
     }
 }
 
